@@ -4,8 +4,82 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment 5</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              "btn-bg": "rgb(180, 244, 97);",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .header-bg {
+        background-color: rgb(249, 247, 243);
+      }
+    </style>
   </head>
   <body>
-    
+    <header class="header-bg h-[137px]">
+      <nav class="container justify-between lg:mx-auto">
+        <section class="flex pt-10">
+             <button class="btn bg-btn-bg font-bold px-6">Blog</button>
+          <!-- Title Tex  -->
+          <div class="mx-auto gap-5 flex">
+            <div class="content-center">
+              <img src="./assets/logo.png" alt="" />
+            </div>
+            <h1 class="mx-auto content-center uppercase font-bold text-xl">
+              Donate Bangladesh
+            </h1>
+          </div>
+          <!-- Default Available Balance -->
+           <div>
+            <div class="content-center"></div>
+              <img src="./assets/coin.png" alt="" />
+             </div>
+             <h1 class="font-bold">10000 BDT</h1>
+           </div>
+         </section>
+       </nav>
+     </header>
+    <main>
+        <section class="container mx-auto">
+          <div class=" mt-20">
+               <!-- Donation and History Button  -->
+           <div class="flex justify-center gap-10">
+             <button class="btn bg-btn-bg font-bold px-5">Donation</button>
+             <button class="btn font-bold px-8 text-gray-500">History</button>
+         </div>
+         <!-- Image and Text with Button  -->
+           <div class=" border flex rounded-xl p-10 gap-4 mt-8">
+            <!-- Img Content  -->
+           <div class="w-[50%]">
+            <div class="hero-content flex-col lg:flex-row">
+            <img src="./assets/noakhali.png" class="w-full p-1 rounded-xl shadow-2xl" /> 
+         </div>
+        </div>
+          <!-- Text Content  -->
+          <div class="w-[50%] content-center">  
+              <button  class="btn mb-12"><img src="./assets/coin.png" alt=""> 0 BDT</button>
+              <h1 class="text-2xl font-bold">Donate for Flood at Noakhali, Bangladesh</h1>
+              <p class=" py-5 text-xl">
+              The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies  and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
+             <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full my-10" />
+            <button class="w-full btn bg-btn-bg font-bold text-xl">Donate Now</button>
+          </div>
+          </div>
+         </div>
+      </section>
+    </main>
   </body>
 </html>
