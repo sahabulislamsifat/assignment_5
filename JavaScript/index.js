@@ -1,24 +1,35 @@
 // Reduce balance from Available Balance
-const availableBalance = document.getElementById("available-balance").innerText;
-const availableBalanceNumber = parseFloat(availableBalance);
+const balanceBtn = document.getElementById("available-balance");
+const donateBtn = document.getElementById("btn-donate");
+const inputAmount = document.getElementById("input-amount");
+const updateBalance = document.getElementById("donated-amount");
 
-// addEvent Handler to donation
-document
-  .getElementById("btn-donate")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
+donateBtn.addEventListener("click", function () {
+  const currentBalance = parseFloat(balanceBtn.innerText);
+  const donationAmount = parseFloat(inputAmount.value);
+  const updateBalanceValue = parseFloat(updateBalance.innerText);
 
-    const donationNoakhali = parseFloat(
-      document.getElementById("input-amount").value
-    );
+  if (
+    isNaN(donationAmount) ||
+    donationAmount < 0 ||
+    donationAmount >= currentBalance
+  ) {
+    alert("invalid Donation Amount");
+    return;
+  }
 
-    const balance = parseFloat(
-      document.getElementById("donated-amount").innerText
-    );
-    const addedDonationAmount = donationNoakhali + balance;
-    // Update Donated Amount in the UI/DOM
-    document.getElementById("donated-amount").innerText = addedDonationAmount;
-  });
+  const newBalance = currentBalance - donationAmount;
+  updateBalance.innerText = updateBalanceValue + donationAmount;
 
-const reduceBalance = addedDonationAmount - availableBalanceNumber;
-document.getElementById("available-balance").innerText = reduceBalance;
+  balanceBtn.innerText = newBalance.toFixed(2);
+  inputAmount.value = "";
+});
+
+// History Button
+document.getElementById("history-btn").addEventListener("click", function () {
+  document.getElementById("main-card-section").classList.add("hidden");
+});
+
+document.getElementById("donation-btn").addEventListener("click", function () {
+  document.getElementById("main-card-section").classList.remove("hidden");
+});
