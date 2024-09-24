@@ -1,3 +1,7 @@
+// Reduce balance from Available Balance
+const availableBalance = document.getElementById("available-balance").innerText;
+const availableBalanceNumber = parseFloat(availableBalance);
+
 // addEvent Handler to donation
 document
   .getElementById("btn-donate")
@@ -5,7 +9,16 @@ document
     event.preventDefault();
 
     const donationNoakhali = parseFloat(
-      document.getElementById("donation-amount").value
+      document.getElementById("input-amount").value
     );
-    console.log(donationNoakhali);
+
+    const balance = parseFloat(
+      document.getElementById("donated-amount").innerText
+    );
+    const addedDonationAmount = donationNoakhali + balance;
+    // Update Donated Amount in the UI/DOM
+    document.getElementById("donated-amount").innerText = addedDonationAmount;
   });
+
+const reduceBalance = addedDonationAmount - availableBalanceNumber;
+document.getElementById("available-balance").innerText = reduceBalance;
