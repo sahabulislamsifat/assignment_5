@@ -19,9 +19,9 @@ donateBtn.addEventListener("click", function () {
   }
 
   let div = document.createElement("div");
-  div.innerHTML = `<div class= "border">
-            <h2>${donationAmount} Donate for Flood at Noakhali, Bangladesh</h2>
-            <p>${new Date()}</p>
+  div.innerHTML = `<div class= "border rounded-lg p-5 shadow-lg my-10">
+            <h2 class= "text-2xl my-5 font-semibold">${donationAmount} Donate for Flood at Noakhali, Bangladesh</h2>
+            <p class= "text-xl font-semibold mb-5 ml-5">Date: ${new Date()}</p>
           </div>`;
   document.getElementById("history-container").appendChild(div);
 
@@ -56,9 +56,9 @@ document.getElementById("btn-donate2").addEventListener("click", function () {
   }
 
   let div = document.createElement("div");
-  div.innerHTML = `<div class= "border">
-            <h2>${inputValue2}  Donate for Flood Relief in Feni,Bangladesh</h2>
-            <p>${new Date()}</p> 
+  div.innerHTML = `<div class= "border rounded-lg p-5 shadow-lg my-10">
+            <h2 class= "text-2xl my-5 font-semibold">${inputValue2}  Donate for Flood Relief in Feni,Bangladesh</h2>
+            <p class = "text-xl font-semibold mb-5 ml-5">Date: ${new Date()}</p> 
           </div>`;
   document.getElementById("history-container").appendChild(div);
 
@@ -69,6 +69,7 @@ document.getElementById("btn-donate2").addEventListener("click", function () {
   mainBalance.innerText = mainBalance.toFixed(2);
 
   // my_modal_1.showModal();
+  document.getElementById("input-amount-2").value = "";
 });
 
 // Donation Template  3
@@ -93,9 +94,9 @@ document.getElementById("btn-donate-3").addEventListener("click", function () {
   }
 
   let div = document.createElement("div");
-  div.innerHTML = `<div class= "border">
-            <h2>${inputValue3}  Aid for Injured in the Quota Movement </h2>
-            <p>${new Date()}</p> 
+  div.innerHTML = `<div class= "border rounded-lg p-5 shadow-lg my-10">
+            <h2 class= "text-2xl my-5 font-semibold">${inputValue3}  Aid for Injured in the Quota Movement </h2>
+            <p class = "text-xl font-semibold mb-5 ml-5">Date:${new Date()}</p> 
           </div>`;
   document.getElementById("history-container").appendChild(div);
 
@@ -106,6 +107,7 @@ document.getElementById("btn-donate-3").addEventListener("click", function () {
   mainBalance.innerText = mainBalance.toFixed(2);
 
   // my_modal_1.showModal();
+  document.getElementById("input-amount-3").value = "";
 });
 
 // History Button Toggle
