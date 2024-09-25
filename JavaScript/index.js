@@ -1,12 +1,11 @@
 // Reduce balance from Available Balance
-const balanceBtn = document.getElementById("available-balance");
-const donateBtn = document.getElementById("btn-donate");
-const inputAmount = document.getElementById("input-amount");
-const updateBalance = document.getElementById("donated-amount");
+const mainBalance = document.getElementById("available-balance");
+const donateBtn = document.getElementById("btn-donate1");
+const inputAmount = document.getElementById("input-amount1");
+const updateBalance = document.getElementById("donated-amount1");
 // Donation Template  1
-donateBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  const currentBalance = parseFloat(balanceBtn.innerText);
+donateBtn.addEventListener("click", function () {
+  const currentBalance = parseFloat(mainBalance.innerText);
   const donationAmount = parseFloat(inputAmount.value);
   const updateBalanceValue = parseFloat(updateBalance.innerText);
 
@@ -19,44 +18,105 @@ donateBtn.addEventListener("click", function (event) {
     return;
   }
 
+  let div = document.createElement("div");
+  div.innerHTML = `<div class= "border">
+            <h2>${donationAmount} Donate for Flood at Noakhali, Bangladesh</h2>
+            <p>${new Date()}</p>
+          </div>`;
+  document.getElementById("history-container").appendChild(div);
+
   const newBalance = currentBalance - donationAmount;
   updateBalance.innerText = updateBalanceValue + donationAmount;
 
-  balanceBtn.innerText = newBalance.toFixed(2);
-  my_modal_1.showModal();
+  mainBalance.innerText = newBalance.toFixed(2);
+
+  // my_modal_1.showModal();
   inputAmount.value = "";
 });
 
 // Donation Template  2
-const balanceBtn2 = document.getElementById("btn-donate-2");
-balanceBtn2.addEventListener("click", function () {
-  const currentBalance = parseFloat(balanceBtn.innerText);
-  const donationAmount = parseFloat(inputAmount.value);
-  const updateBalanceValue = parseFloat(updateBalance.innerText);
-  console.log(donationAmount)
+document.getElementById("btn-donate2").addEventListener("click", function () {
+  const inputValue2 = parseFloat(
+    document.getElementById("input-amount2").value
+  );
+  const cardAmount = parseFloat(
+    document.getElementById("donated-amount2").innerText
+  );
+  const mainBalanceValue = parseFloat(
+    document.getElementById("available-balance").innerText
+  );
 
   if (
-    isNaN(donationAmount) ||
-    donationAmount < 0 ||
-    donationAmount >= currentBalance
+    isNaN(inputValue2) ||
+    inputValue2 < 0 ||
+    inputValue2 >= mainBalanceValue
   ) {
     alert("invalid Donation Amount");
     return;
   }
 
-  const newBalance = currentBalance - donationAmount;
-  updateBalance.innerText = updateBalanceValue + donationAmount;
+  let div = document.createElement("div");
+  div.innerHTML = `<div class= "border">
+            <h2>${inputValue2}  Donate for Flood Relief in Feni,Bangladesh</h2>
+            <p>${new Date()}</p> 
+          </div>`;
+  document.getElementById("history-container").appendChild(div);
 
-  balanceBtn.innerText = newBalance.toFixed(2);
-  my_modal_1.showModal();
-  inputAmount.value = "";
+  document.getElementById("donated-amount2").innerText =
+    cardAmount + inputValue2;
+
+  mainBalance.innerText = mainBalanceValue - inputValue2;
+  mainBalance.innerText = mainBalance.toFixed(2);
+
+  // my_modal_1.showModal();
+});
+
+// Donation Template  3
+document.getElementById("btn-donate-3").addEventListener("click", function () {
+  const inputValue3 = parseFloat(
+    document.getElementById("input-amount-3").value
+  );
+  const cardAmount3 = parseFloat(
+    document.getElementById("donated-amount-3").innerText
+  );
+  const mainBalanceValue3 = parseFloat(
+    document.getElementById("available-balance").innerText
+  );
+
+  if (
+    isNaN(inputValue3) ||
+    inputValue3 < 0 ||
+    inputValue3 >= mainBalanceValue3
+  ) {
+    alert("invalid Donation Amount");
+    return;
+  }
+
+  let div = document.createElement("div");
+  div.innerHTML = `<div class= "border">
+            <h2>${inputValue3}  Aid for Injured in the Quota Movement </h2>
+            <p>${new Date()}</p> 
+          </div>`;
+  document.getElementById("history-container").appendChild(div);
+
+  document.getElementById("donated-amount-3").innerText =
+    cardAmount3 + inputValue3;
+
+  mainBalance.innerText = mainBalanceValue3 - inputValue3;
+  mainBalance.innerText = mainBalance.toFixed(2);
+
+  // my_modal_1.showModal();
 });
 
 // History Button Toggle
 document.getElementById("history-btn").addEventListener("click", function () {
   document.getElementById("main-card-section").classList.add("hidden");
+  document.getElementById("history-btn").classList.add("bg-btn-bg");
+  document.getElementById("donation-btn").classList.remove("bg-btn-bg");
 });
 
 document.getElementById("donation-btn").addEventListener("click", function () {
   document.getElementById("main-card-section").classList.remove("hidden");
+  document.getElementById("history-btn").classList.remove("bg-btn-bg");
+  document.getElementById("donation-btn").classList.add("bg-btn-bg");
 });
